@@ -1,6 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+require("dotenv").config();
 
 const _ = require("lodash");
 const app = express();
@@ -12,7 +13,7 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(express.static("public"));
 
-const URI = 'mongodb+srv://admin-aditya:Adityason11@cluster0.nlqjt.mongodb.net/todolistDB?retryWrites=true&w=majority';
+const URI = process.env.DB;
 
 mongoose.connect(URI, {useNewUrlParser: true});
 
